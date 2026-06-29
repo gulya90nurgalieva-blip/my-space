@@ -1,4 +1,32 @@
-export default function LibraryPage() {
+const books = [
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    image: "/books/atomic-habits.jpg",
+    category: "Personal Growth",
+    rating: "⭐⭐⭐⭐⭐",
+    note: "Changed my view on discipline."
+  },
+
+  {
+    title: "Clean Code",
+    author: "Robert C. Martin",
+    image: "/books/clean-code.jpg",
+    category: "Programming",
+    rating: "⭐⭐⭐⭐⭐",
+    note: "A must-read for every developer."
+  },
+
+  {
+    title: "The Pragmatic Programmer",
+    author: "David Thomas",
+    image: "https://m.media-amazon.com/images/I/41as+WafrFL.jpg",
+    category: "Programming",
+    rating: "⭐⭐⭐⭐⭐",
+    note: "Timeless advice for engineers."
+  }
+   ];
+ export default function LibraryPage() {
   return (
     <main className="min-h-screen bg-stone-50 text-stone-800">
 
@@ -75,130 +103,51 @@ export default function LibraryPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {/* Карточка 1 */}
-          <div className="
-           bg-white
-           rounded-3xl
-           p-8
-           shadow-sm
-           hover:shadow-2xl
-           hover:-translate-y-3
-           transition-all
-           duration-300
-            ">
+     {books.map((book) => (
 
-            <div className="flex gap-6">
+     <div
+      key={book.title}
+      className="
+        bg-white
+        rounded-3xl
+        p-8
+        shadow-sm
+        hover:shadow-2xl
+        hover:-translate-y-3
+        transition-all
+        duration-300
+      "
+      >
 
-              <img
-               src="/books/atomic-habits.jpg"
-               alt="Atomic Habits"
-               className="w-32 h-48 rounded-2xl object-cover"
-               />
+      <img
+        src={book.image}
+        alt={book.title}
+        className="w-40 h-56 object-cover rounded-2xl mb-6 mx-auto"
+      />
 
-              <div>
-                <h2 className="text-4xl font-serif mb-3">
-                  Atomic Habits
-                </h2>
+      <h2 className="text-3xl font-serif mb-2">
+        {book.title}
+      </h2>
 
-                <p className="text-orange-700 mb-4">
-                  James Clear
-                </p>
+      <p className="text-orange-700 mb-4">
+        {book.author}
+      </p>
 
-                <p className="text-stone-600 mb-6">
-                  A book about habits, discipline and continuous improvement.
-                </p>
+      <p className="text-stone-600 mb-4">
+        {book.note}
+      </p>
 
-                <span className="bg-orange-100 px-4 py-2 rounded-full">
-                  Personal Growth
-                </span>
-              </div>
+      <div className="text-yellow-500 mb-4">
+        {book.rating}
+      </div>
 
-            </div>
+      <span className="bg-orange-100 px-4 py-2 rounded-full">
+        {book.category}
+      </span>
 
-          </div>
+     </div>
 
-          {/* Карточка 2 */}
-          <div className="
-           bg-white
-           rounded-3xl
-           p-8
-           shadow-sm
-           hover:shadow-2xl
-           hover:-translate-y-3
-           transition-all
-           duration-300
-            ">
-
-            <div className="flex gap-6">
-
-              <img
-                   src="/books/clean-code.jpg"
-                   alt="Clean Code"
-                    className="w-32 h-48 rounded-2xl object-cover"
-                    />
-
-              <div>
-                <h2 className="text-4xl font-serif mb-3">
-                  Clean Code
-                </h2>
-
-                <p className="text-orange-700 mb-4">
-                  Robert C. Martin
-                </p>
-
-                <p className="text-stone-600 mb-6">
-                  Learn how to write clean and maintainable code.
-                </p>
-
-                <span className="bg-blue-100 px-4 py-2 rounded-full">
-                  Programming
-                </span>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Карточка 3 */}
-          <div className="
-           bg-white
-           rounded-3xl
-           p-8
-           shadow-sm
-           hover:shadow-2xl
-           hover:-translate-y-3
-           transition-all
-           duration-300
-            ">
-            <div className="flex gap-6">
-
-              <img
-               src="https://m.media-amazon.com/images/I/41as+WafrFL.jpg"
-                alt="The Pragmatic Programmer"
-                className="w-32 h-48 rounded-2xl object-cover"
-                 />
-
-              <div>
-                <h2 className="text-3xl font-serif mb-3">
-                  The Pragmatic Programmer
-                </h2>
-
-                <p className="text-orange-700 mb-4">
-                  David Thomas
-                </p>
-
-                <p className="text-stone-600 mb-6">
-                  Timeless principles for software developers.
-                </p>
-
-                <span className="bg-blue-100 px-4 py-2 rounded-full">
-                  Programming
-                </span>
-              </div>
-
-            </div>
-
-          </div>
+    ))}
 
         </div>
 
